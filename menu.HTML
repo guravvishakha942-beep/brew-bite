@@ -1,0 +1,2255 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Brew & Bite | Menu</title>
+
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+
+<link rel="stylesheet"
+href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+
+:root{
+    --espresso:#21130d;
+    --dark:#2d1a12;
+    --coffee:#583522;
+    --brown:#754a31;
+    --gold:#c8945d;
+    --cream:#fbf5ed;
+    --beige:#ead9c5;
+}
+
+*{
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    margin:0;
+    font-family:'Montserrat',sans-serif;
+    background:var(--cream);
+    color:var(--espresso);
+}
+
+h1,h2,h3,h4{
+    font-family:'DM Serif Display',serif;
+}
+
+
+/* NAVBAR */
+
+.navbar{
+    background:rgba(33,19,13,.97);
+    padding:17px 0;
+    position:sticky;
+    top:0;
+    z-index:999;
+    box-shadow:0 5px 25px rgba(0,0,0,.12);
+}
+
+.navbar-brand{
+    font-family:'DM Serif Display',serif;
+    font-size:30px;
+    color:#e4b27d!important;
+}
+
+.navbar-brand i{
+    color:white;
+}
+
+.nav-link{
+    color:white!important;
+    margin-left:20px;
+    font-size:14px;
+    transition:.3s;
+}
+
+.nav-link:hover{
+    color:#e4b27d!important;
+}
+
+.order-nav{
+    background:var(--gold);
+    border-radius:30px;
+    padding:10px 20px!important;
+}
+
+
+/* HERO */
+
+.menu-hero{
+    min-height:55vh;
+    display:flex;
+    align-items:center;
+    text-align:center;
+    color:white;
+
+    background:
+    linear-gradient(
+        rgba(33,19,13,.82),
+        rgba(33,19,13,.82)
+    ),
+    url("https://images.unsplash.com/photo-1498804103079-a6351b050096?auto=format&fit=crop&w=2000&q=90");
+
+    background-size:cover;
+    background-position:center;
+}
+
+.menu-hero-content{
+    max-width:800px;
+    margin:auto;
+}
+
+.menu-label{
+    color:#e2ad76;
+    letter-spacing:5px;
+    font-size:12px;
+    font-weight:700;
+}
+
+.menu-hero h1{
+    font-size:clamp(55px,8vw,90px);
+    margin:18px 0;
+}
+
+.menu-hero p{
+    color:#e1d5cc;
+    line-height:1.8;
+}
+
+
+/* MENU SECTION */
+
+.menu-section{
+    padding:90px 0;
+}
+
+.section-heading{
+    text-align:center;
+    max-width:650px;
+    margin:auto;
+}
+
+.section-heading h2{
+    font-size:52px;
+    margin:12px 0;
+}
+
+.section-heading p{
+    color:#766357;
+    line-height:1.8;
+}
+
+
+/* FILTER */
+
+.filters{
+    text-align:center;
+    margin:45px 0;
+}
+
+.filter-btn{
+    border:1px solid var(--gold);
+    background:transparent;
+    color:var(--coffee);
+    padding:11px 24px;
+    border-radius:30px;
+    margin:5px;
+    transition:.3s;
+    font-weight:500;
+}
+
+.filter-btn:hover,
+.filter-btn.active{
+    background:var(--gold);
+    color:white;
+}
+
+
+/* PRODUCT CARD */
+
+.product-card{
+    background:white;
+    border-radius:22px;
+    overflow:hidden;
+    height:100%;
+    border:none;
+    box-shadow:0 12px 35px rgba(55,31,18,.08);
+    transition:.4s;
+}
+
+.product-card:hover{
+    transform:translateY(-10px);
+    box-shadow:0 22px 50px rgba(55,31,18,.16);
+}
+
+.product-img{
+    height:240px;
+    overflow:hidden;
+    position:relative;
+}
+
+.product-img img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    transition:.5s;
+}
+
+.product-card:hover img{
+    transform:scale(1.08);
+}
+
+.product-tag{
+    position:absolute;
+    top:15px;
+    left:15px;
+    background:var(--espresso);
+    color:white;
+    font-size:10px;
+    padding:7px 13px;
+    border-radius:20px;
+    letter-spacing:1px;
+}
+
+.product-body{
+    padding:23px;
+}
+
+.product-body h3{
+    font-size:25px;
+    margin-bottom:8px;
+}
+
+.product-body p{
+    color:#806e61;
+    font-size:13px;
+    line-height:1.7;
+    min-height:45px;
+}
+
+.price{
+    color:var(--gold);
+    font-size:20px;
+    font-weight:700;
+}
+
+.add-btn{
+    width:43px;
+    height:43px;
+    border:none;
+    border-radius:50%;
+    background:var(--espresso);
+    color:white;
+    transition:.3s;
+}
+
+.add-btn:hover{
+    background:var(--gold);
+    transform:rotate(90deg);
+}
+
+
+/* CART */
+
+.cart-box{
+    position:fixed;
+    right:25px;
+    bottom:25px;
+    z-index:1000;
+}
+
+.cart-button{
+    border:none;
+    background:var(--gold);
+    color:white;
+    width:65px;
+    height:65px;
+    border-radius:50%;
+    font-size:24px;
+    box-shadow:0 10px 30px rgba(0,0,0,.25);
+}
+
+.cart-count{
+    position:absolute;
+    top:-4px;
+    right:-4px;
+    background:var(--espresso);
+    color:white;
+    width:25px;
+    height:25px;
+    border-radius:50%;
+    font-size:12px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+}
+
+
+/* CTA */
+
+.cta{
+    padding:100px 20px;
+    text-align:center;
+    color:white;
+
+    background:
+    linear-gradient(rgba(33,19,13,.87),rgba(33,19,13,.87)),
+    url("https://images.unsplash.com/photo-1511081692775-05d0f180a065?auto=format&fit=crop&w=1800&q=85");
+
+    background-size:cover;
+    background-position:center;
+}
+
+.cta h2{
+    font-size:55px;
+}
+
+.cta p{
+    color:#d9cbc0;
+    max-width:600px;
+    margin:15px auto 30px;
+}
+
+
+/* FOOTER */
+
+footer{
+    background:#170d09;
+    color:#bdaea4;
+    padding:60px 0 20px;
+}
+
+footer h3{
+    color:#e2ad76;
+}
+
+footer h5{
+    color:white;
+}
+
+.footer-link{
+    color:#bdaea4;
+    text-decoration:none;
+    display:block;
+    margin:12px 0;
+}
+
+.footer-link:hover{
+    color:#e2ad76;
+}
+
+.social a{
+    color:white;
+    font-size:21px;
+    margin-right:15px;
+}
+
+.social a:hover{
+    color:#e2ad76;
+}
+
+
+/* RESPONSIVE */
+
+@media(max-width:768px){
+
+    .nav-link{
+        margin-left:0;
+        padding:10px 0;
+    }
+
+    .menu-hero{
+        min-height:60vh;
+    }
+
+    .section-heading h2{
+        font-size:42px;
+    }
+
+    .cta h2{
+        font-size:42px;
+    }
+
+}
+
+</style>
+</head>
+
+
+<body>
+
+
+<!-- NAVBAR -->
+
+<nav class="navbar navbar-expand-lg navbar-dark">
+
+<div class="container">
+
+<a class="navbar-brand" href="index.html">
+<i class="bi bi-cup-hot-fill"></i>
+Brew & Bite
+</a>
+
+<button class="navbar-toggler"
+data-bs-toggle="collapse"
+data-bs-target="#navbarNav">
+
+<span class="navbar-toggler-icon"></span>
+
+</button>
+
+<div class="collapse navbar-collapse" id="navbarNav">
+
+<ul class="navbar-nav ms-auto align-items-lg-center">
+
+<li class="nav-item">
+<a class="nav-link" href="index.html">Home</a>
+</li>
+
+<li class="nav-item">
+<a class="nav-link" href="menu.html">Menu</a>
+</li>
+
+<li class="nav-item">
+<a class="nav-link" href="about.html">About</a>
+</li>
+
+<li class="nav-item">
+<a class="nav-link" href="order.html">Order</a>
+</li>
+
+<li class="nav-item">
+<a class="nav-link" href="contact.html">Contact</a>
+</li>
+
+<li class="nav-item ms-lg-2">
+<a class="nav-link order-nav" href="order.html">
+<i class="bi bi-cart3"></i> Cart
+<span id="navCount">0</span>
+</a>
+</li>
+
+</ul>
+
+</div>
+</div>
+
+</nav>
+
+
+
+<!-- HERO -->
+
+<section class="menu-hero">
+
+<div class="container">
+
+<div class="menu-hero-content">
+
+<span class="menu-label">
+BREWED WITH PASSION
+</span>
+
+<h1>
+Our Menu
+</h1>
+
+<p>
+From rich handcrafted coffee to delicious bites
+and irresistible desserts — find something
+to make your day a little better.
+</p>
+
+</div>
+
+</div>
+
+</section>
+
+
+
+<!-- MENU -->
+
+<section class="menu-section">
+
+<div class="container">
+
+<div class="section-heading">
+
+<span class="menu-label">
+EXPLORE OUR MENU
+</span>
+
+<h2>
+Something delicious awaits.
+</h2>
+
+<p>
+Carefully crafted drinks, freshly prepared food
+and sweet treats made for every mood.
+</p>
+
+</div>
+
+
+<!-- FILTER -->
+
+<div class="filters">
+
+<button class="filter-btn active"
+onclick="filterItems('all',this)">
+All
+</button>
+
+<button class="filter-btn"
+onclick="filterItems('coffee',this)">
+☕ Coffee
+</button>
+
+<button class="filter-btn"
+onclick="filterItems('food',this)">
+🍔 Food
+</button>
+
+<button class="filter-btn"
+onclick="filterItems('dessert',this)">
+🍰 Desserts
+</button>
+
+</div>
+
+
+
+<!-- PRODUCTS -->
+
+<div class="row g-4" id="productContainer">
+
+
+<!-- 1 -->
+
+<div class="col-md-6 col-lg-4 col-xl-3 product-item coffee">
+
+<div class="product-card">
+
+<div class="product-img">
+
+<img src="cappuccino.jpg">
+
+<span class="product-tag">BEST SELLER</span>
+
+</div>
+
+<div class="product-body">
+
+<h3>Cappuccino</h3>
+
+<p>Rich espresso with smooth steamed milk and creamy foam.</p>
+
+<div class="d-flex justify-content-between align-items-center">
+
+<span class="price">₹149</span>
+
+<button class="add-btn"
+onclick="addToCart('Cappuccino',149)">
+<i class="bi bi-plus"></i>
+</button>
+
+</div>
+
+</div>
+</div>
+</div>
+
+
+
+<!-- 2 -->
+
+<div class="col-md-6 col-lg-4 col-xl-3 product-item coffee">
+
+<div class="product-card">
+
+<div class="product-img">
+
+<img src="cafelatte.jpg">
+
+<span class="product-tag">POPULAR</span>
+
+</div>
+
+<div class="product-body">
+
+<h3>Café Latte</h3>
+
+<p>Smooth espresso blended with perfectly steamed milk.</p>
+
+<div class="d-flex justify-content-between align-items-center">
+
+<span class="price">₹159</span>
+
+<button class="add-btn"
+onclick="addToCart('Café Latte',159)">
+<i class="bi bi-plus"></i>
+</button>
+
+</div>
+
+</div>
+</div>
+</div>
+
+
+
+<!-- 3 -->
+
+<div class="col-md-6 col-lg-4 col-xl-3 product-item coffee">
+
+<div class="product-card">
+
+<div class="product-img">
+
+<img src="coldcoffee.jpg">
+
+</div>
+
+<div class="product-body">
+
+<h3>Cold Coffee</h3>
+
+<p>Chilled creamy coffee with a refreshing chocolate touch.</p>
+
+<div class="d-flex justify-content-between align-items-center">
+
+<span class="price">₹139</span>
+
+<button class="add-btn"
+onclick="addToCart('Cold Coffee',139)">
+<i class="bi bi-plus"></i>
+</button>
+
+</div>
+
+</div>
+</div>
+</div>
+
+
+
+<!-- 4 -->
+
+<div class="col-md-6 col-lg-4 col-xl-3 product-item coffee">
+
+<div class="product-card">
+
+<div class="product-img">
+
+<img src="Americano.jpg">
+
+</div>
+
+<div class="product-body">
+
+<h3>Americano</h3>
+
+<p>Bold espresso with hot water for a clean coffee taste.</p>
+
+<div class="d-flex justify-content-between align-items-center">
+
+<span class="price">₹119</span>
+
+<button class="add-btn"
+onclick="addToCart('Americano',119)">
+<i class="bi bi-plus"></i>
+</button>
+
+</div>
+
+</div>
+</div>
+</div>
+
+
+
+<!-- 5 -->
+
+<div class="col-md-6 col-lg-4 col-xl-3 product-item coffee">
+
+<div class="product-card">
+
+<div class="product-img">
+
+<img src="mocha.jpg">
+
+</div>
+
+<div class="product-body">
+
+<h3>Mocha</h3>
+
+<p>Espresso, chocolate and steamed milk topped with foam.</p>
+
+<div class="d-flex justify-content-between align-items-center">
+
+<span class="price">₹179</span>
+
+<button class="add-btn"
+onclick="addToCart('Mocha',179)">
+<i class="bi bi-plus"></i>
+</button>
+
+</div>
+
+</div>
+</div>
+</div>
+
+
+
+<!-- 6 -->
+
+<div class="col-md-6 col-lg-4 col-xl-3 product-item coffee">
+
+<div class="product-card">
+
+<div class="product-img">
+
+<img src="espresso.jpg">
+
+</div>
+
+<div class="product-body">
+
+<h3>Espresso</h3>
+
+<p>Strong and aromatic freshly brewed classic espresso.</p>
+
+<div class="d-flex justify-content-between align-items-center">
+
+<span class="price">₹99</span>
+
+<button class="add-btn"
+onclick="addToCart('Espresso',99)">
+<i class="bi bi-plus"></i>
+</button>
+
+</div>
+
+</div>
+</div>
+</div>
+
+
+
+<!-- 7 -->
+
+<div class="col-md-6 col-lg-4 col-xl-3 product-item coffee">
+
+<div class="product-card">
+
+<div class="product-img">
+
+<img src="caramellatte.jpg">
+
+</div>
+
+<div class="product-body">
+
+<h3>Caramel Latte</h3>
+
+<p>Creamy latte finished with sweet caramel flavour.</p>
+
+<div class="d-flex justify-content-between align-items-center">
+
+<span class="price">₹189</span>
+
+<button class="add-btn"
+onclick="addToCart('Caramel Latte',189)">
+<i class="bi bi-plus"></i>
+</button>
+
+</div>
+
+</div>
+</div>
+</div>
+
+
+
+<!-- 8 -->
+
+<div class="col-md-6 col-lg-4 col-xl-3 product-item coffee">
+
+<div class="product-card">
+
+<div class="product-img">
+
+<img src="hazelnutcoffee.jpg">
+
+</div>
+
+<div class="product-body">
+
+<h3>Hazelnut Coffee</h3>
+
+<p>Rich coffee with a smooth roasted hazelnut flavour.</p>
+
+<div class="d-flex justify-content-between align-items-center">
+
+<span class="price">₹179</span>
+
+<button class="add-btn"
+onclick="addToCart('Hazelnut Coffee',179)">
+<i class="bi bi-plus"></i>
+</button>
+
+</div>
+
+</div>
+</div>
+</div>
+
+
+
+<!-- 9 -->
+
+<div class="col-md-6 col-lg-4 col-xl-3 product-item food">
+
+<div class="product-card">
+
+<div class="product-img">
+
+<img src="cheesesandwich.jpg">
+
+</div>
+
+<div class="product-body">
+
+<h3>Cheese Sandwich</h3>
+
+<p>Toasted bread filled with melted cheese and vegetables.</p>
+
+<div class="d-flex justify-content-between align-items-center">
+
+<span class="price">₹129</span>
+
+<button class="add-btn"
+onclick="addToCart('Cheese Sandwich',129)">
+<i class="bi bi-plus"></i>
+</button>
+
+</div>
+
+</div>
+</div>
+</div>
+
+
+
+<!-- 10 -->
+
+<div class="col-md-6 col-lg-4 col-xl-3 product-item food">
+
+<div class="product-card">
+
+<div class="product-img">
+
+<img src="vegburger.jpg">
+
+</div>
+
+<div class="product-body">
+
+<h3>Veg Burger</h3>
+
+<p>Crispy vegetable patty with fresh salad and creamy sauce.</p>
+
+<div class="d-flex justify-content-between align-items-center">
+
+<span class="price">₹179</span>
+
+<button class="add-btn"
+onclick="addToCart('Veg Burger',179)">
+<i class="bi bi-plus"></i>
+</button>
+
+</div>
+
+</div>
+</div>
+</div>
+
+
+
+<!-- 11 -->
+
+<div class="col-md-6 col-lg-4 col-xl-3 product-item food">
+
+<div class="product-card">
+
+<div class="product-img">
+
+<img src="vegmomos.jpg">
+
+</div>
+
+<div class="product-body">
+
+<h3>Veg Momos</h3>
+
+<p>Steamed dumplings served with spicy café special chutney.</p>
+
+<div class="d-flex justify-content-between align-items-center">
+
+<span class="price">₹149</span>
+
+<button class="add-btn"
+onclick="addToCart('Veg Momos',149)">
+<i class="bi bi-plus"></i>
+</button>
+
+</div>
+
+</div>
+</div>
+</div>
+
+
+
+<!-- 12 -->
+
+<div class="col-md-6 col-lg-4 col-xl-3 product-item food">
+
+<div class="product-card">
+
+<div class="product-img">
+
+<img src="margheritapizza.jpg">
+
+</div>
+
+<div class="product-body">
+
+<h3>Margherita Pizza</h3>
+
+<p>Classic pizza with tomato, mozzarella and fresh herbs.</p>
+
+<div class="d-flex justify-content-between align-items-center">
+
+<span class="price">₹229</span>
+
+<button class="add-btn"
+onclick="addToCart('Margherita Pizza',229)">
+<i class="bi bi-plus"></i>
+</button>
+
+</div>
+
+</div>
+</div>
+</div>
+
+
+
+<!-- 13 -->
+
+<div class="col-md-6 col-lg-4 col-xl-3 product-item food">
+
+<div class="product-card">
+
+<div class="product-img">
+
+<img src="frenchfries.jpg">
+
+</div>
+
+<div class="product-body">
+
+<h3>French Fries</h3>
+
+<p>Golden crispy fries served with our special dip.</p>
+
+<div class="d-flex justify-content-between align-items-center">
+
+<span class="price">₹99</span>
+
+<button class="add-btn"
+onclick="addToCart('French Fries',99)">
+<i class="bi bi-plus"></i>
+</button>
+
+</div>
+
+</div>
+</div>
+</div>
+
+
+
+<!-- 14 -->
+
+<div class="col-md-6 col-lg-4 col-xl-3 product-item food">
+
+<div class="product-card">
+
+<div class="product-img">
+
+<img src="vegpasta.jpg">
+
+</div>
+
+<div class="product-body">
+
+<h3>Veg Pasta</h3>
+
+<p>Creamy pasta tossed with fresh vegetables and herbs.</p>
+
+<div class="d-flex justify-content-between align-items-center">
+
+<span class="price">₹199</span>
+
+<button class="add-btn"
+onclick="addToCart('Veg Pasta',199)">
+<i class="bi bi-plus"></i>
+</button>
+
+</div>
+
+</div>
+</div>
+</div>
+
+
+
+<!-- 15 -->
+
+<div class="col-md-6 col-lg-4 col-xl-3 product-item food">
+
+<div class="product-card">
+
+<div class="product-img">
+
+<img src="garlicbread.jpg">
+
+</div>
+
+<div class="product-body">
+
+<h3>Garlic Bread</h3>
+
+<p>Warm toasted bread with garlic butter and herbs.</p>
+
+<div class="d-flex justify-content-between align-items-center">
+
+<span class="price">₹119</span>
+
+<button class="add-btn"
+onclick="addToCart('Garlic Bread',119)">
+<i class="bi bi-plus"></i>
+</button>
+
+</div>
+
+</div>
+</div>
+</div>
+
+
+
+<!-- 16 -->
+
+<div class="col-md-6 col-lg-4 col-xl-3 product-item food">
+
+<div class="product-card">
+
+<div class="product-img">
+
+<img src="paneerwrap.jpg">
+
+</div>
+
+<div class="product-body">
+
+<h3>Paneer Wrap</h3>
+
+<p>Spiced paneer wrapped with fresh vegetables and sauce.</p>
+
+<div class="d-flex justify-content-between align-items-center">
+
+<span class="price">₹169</span>
+
+<button class="add-btn"
+onclick="addToCart('Paneer Wrap',169)">
+<i class="bi bi-plus"></i>
+</button>
+
+</div>
+
+</div>
+</div>
+</div>
+
+
+
+<!-- 17 -->
+
+<div class="col-md-6 col-lg-4 col-xl-3 product-item food">
+
+<div class="product-card">
+
+<div class="product-img">
+
+<img src="clubsandwich.jpg">
+
+</div>
+
+<div class="product-body">
+
+<h3>Club Sandwich</h3>
+
+<p>Triple layered sandwich packed with fresh ingredients.</p>
+
+<div class="d-flex justify-content-between align-items-center">
+
+<span class="price">₹199</span>
+
+<button class="add-btn"
+onclick="addToCart('Club Sandwich',199)">
+<i class="bi bi-plus"></i>
+</button>
+
+</div>
+
+</div>
+</div>
+</div>
+
+
+
+<!-- 18 -->
+
+<div class="col-md-6 col-lg-4 col-xl-3 product-item food">
+
+<div class="product-card">
+
+<div class="product-img">
+
+<img src="farmhousepizza.jpg">
+
+</div>
+
+<div class="product-body">
+
+<h3>Farmhouse Pizza</h3>
+
+<p>Loaded with vegetables, cheese and our signature sauce.</p>
+
+<div class="d-flex justify-content-between align-items-center">
+
+<span class="price">₹249</span>
+
+<button class="add-btn"
+onclick="addToCart('Farmhouse Pizza',249)">
+<i class="bi bi-plus"></i>
+</button>
+
+</div>
+
+</div>
+</div>
+</div>
+
+
+
+<!-- 19 -->
+
+<div class="col-md-6 col-lg-4 col-xl-3 product-item food">
+
+<div class="product-card">
+
+<div class="product-img">
+
+<img src="cheesetoast.jpg">
+
+</div>
+
+<div class="product-body">
+
+<h3>Cheese Toast</h3>
+
+<p>Crispy toast topped with melted golden cheese.</p>
+
+<div class="d-flex justify-content-between align-items-center">
+
+<span class="price">₹109</span>
+
+<button class="add-btn"
+onclick="addToCart('Cheese Toast',109)">
+<i class="bi bi-plus"></i>
+</button>
+
+</div>
+
+</div>
+</div>
+</div>
+
+
+
+<!-- 20 -->
+
+<div class="col-md-6 col-lg-4 col-xl-3 product-item food">
+
+<div class="product-card">
+
+<div class="product-img">
+
+<img src="vegnuggets.jpg">
+
+</div>
+
+<div class="product-body">
+
+<h3>Veg Nuggets</h3>
+
+<p>Crispy golden nuggets served with a creamy dip.</p>
+
+<div class="d-flex justify-content-between align-items-center">
+
+<span class="price">₹139</span>
+
+<button class="add-btn"
+onclick="addToCart('Veg Nuggets',139)">
+<i class="bi bi-plus"></i>
+</button>
+
+</div>
+
+</div>
+</div>
+</div>
+
+
+
+<!-- 21 -->
+
+<div class="col-md-6 col-lg-4 col-xl-3 product-item dessert">
+
+<div class="product-card">
+
+<div class="product-img">
+
+<img src="chocolatecake.jpg">
+
+<span class="product-tag">FAVORITE</span>
+
+</div>
+
+<div class="product-body">
+
+<h3>Chocolate Cake</h3>
+
+<p>Rich soft chocolate cake with creamy chocolate topping.</p>
+
+<div class="d-flex justify-content-between align-items-center">
+
+<span class="price">₹169</span>
+
+<button class="add-btn"
+onclick="addToCart('Chocolate Cake',169)">
+<i class="bi bi-plus"></i>
+</button>
+
+</div>
+
+</div>
+</div>
+</div>
+
+
+
+<!-- 22 -->
+
+<div class="col-md-6 col-lg-4 col-xl-3 product-item dessert">
+
+<div class="product-card">
+
+<div class="product-img">
+
+<img src="strawberrycake.jpg">
+
+</div>
+
+<div class="product-body">
+
+<h3>Strawberry Cake</h3>
+
+<p>Soft vanilla cake layered with fresh strawberry cream.</p>
+
+<div class="d-flex justify-content-between align-items-center">
+
+<span class="price">₹189</span>
+
+<button class="add-btn"
+onclick="addToCart('Strawberry Cake',189)">
+<i class="bi bi-plus"></i>
+</button>
+
+</div>
+
+</div>
+</div>
+</div>
+
+
+
+<!-- 23 -->
+
+<div class="col-md-6 col-lg-4 col-xl-3 product-item dessert">
+
+<div class="product-card">
+
+<div class="product-img">
+
+<img src="donuts.jpg">
+
+</div>
+
+<div class="product-body">
+
+<h3>Donuts</h3>
+
+<p>Soft freshly glazed donuts with a sweet finish.</p>
+
+<div class="d-flex justify-content-between align-items-center">
+
+<span class="price">₹99</span>
+
+<button class="add-btn"
+onclick="addToCart('Donuts',99)">
+<i class="bi bi-plus"></i>
+</button>
+
+</div>
+
+</div>
+</div>
+</div>
+
+
+
+<!-- 24 -->
+
+<div class="col-md-6 col-lg-4 col-xl-3 product-item dessert">
+
+<div class="product-card">
+
+<div class="product-img">
+
+<img src="cheesecake.jpg">
+
+</div>
+
+<div class="product-body">
+
+<h3>Cheesecake</h3>
+
+<p>Creamy classic cheesecake with a buttery biscuit base.</p>
+
+<div class="d-flex justify-content-between align-items-center">
+
+<span class="price">₹199</span>
+
+<button class="add-btn"
+onclick="addToCart('Cheesecake',199)">
+<i class="bi bi-plus"></i>
+</button>
+
+</div>
+
+</div>
+</div>
+</div>
+
+
+
+<!-- 25 -->
+
+<div class="col-md-6 col-lg-4 col-xl-3 product-item dessert">
+
+<div class="product-card">
+
+<div class="product-img">
+
+<img src="redvelvet.jpg">
+
+</div>
+
+<div class="product-body">
+
+<h3>Red Velvet</h3>
+
+<p>Classic red velvet cake with smooth cream cheese frosting.</p>
+
+<div class="d-flex justify-content-between align-items-center">
+
+<span class="price">₹189</span>
+
+<button class="add-btn"
+onclick="addToCart('Red Velvet',189)">
+<i class="bi bi-plus"></i>
+</button>
+
+</div>
+
+</div>
+</div>
+</div>
+
+
+
+<!-- 26 -->
+
+<div class="col-md-6 col-lg-4 col-xl-3 product-item dessert">
+
+<div class="product-card">
+
+<div class="product-img">
+
+<img src="brownie.jpg">
+
+</div>
+
+<div class="product-body">
+
+<h3>Brownie</h3>
+
+<p>Warm fudgy chocolate brownie with rich cocoa flavour.</p>
+
+<div class="d-flex justify-content-between align-items-center">
+
+<span class="price">₹129</span>
+
+<button class="add-btn"
+onclick="addToCart('Brownie',129)">
+<i class="bi bi-plus"></i>
+</button>
+
+</div>
+
+</div>
+</div>
+</div>
+
+
+
+<!-- 27 -->
+
+<div class="col-md-6 col-lg-4 col-xl-3 product-item dessert">
+
+<div class="product-card">
+
+<div class="product-img">
+
+<img src="chocolatedonut.jpg">
+
+</div>
+
+<div class="product-body">
+
+<h3>Chocolate Donut</h3>
+
+<p>Soft donut covered with rich chocolate glaze.</p>
+
+<div class="d-flex justify-content-between align-items-center">
+
+<span class="price">₹109</span>
+
+<button class="add-btn"
+onclick="addToCart('Chocolate Donut',109)">
+<i class="bi bi-plus"></i>
+</button>
+
+</div>
+
+</div>
+</div>
+</div>
+
+
+
+<!-- 28 -->
+
+<div class="col-md-6 col-lg-4 col-xl-3 product-item dessert">
+
+<div class="product-card">
+
+<div class="product-img">
+
+<img src="blueberrymuffin.jpg">
+
+</div>
+
+<div class="product-body">
+
+<h3>Blueberry Muffin</h3>
+
+<p>Soft buttery muffin filled with juicy blueberries.</p>
+
+<div class="d-flex justify-content-between align-items-center">
+
+<span class="price">₹119</span>
+
+<button class="add-btn"
+onclick="addToCart('Blueberry Muffin',119)">
+<i class="bi bi-plus"></i>
+</button>
+
+</div>
+
+</div>
+</div>
+</div>
+
+
+
+<!-- 29 -->
+
+<div class="col-md-6 col-lg-4 col-xl-3 product-item dessert">
+
+<div class="product-card">
+
+<div class="product-img">
+
+<img src="waffles.jpg">
+
+</div>
+
+<div class="product-body">
+
+<h3>Waffles</h3>
+
+<p>Golden crispy waffles served with cream and chocolate.</p>
+
+<div class="d-flex justify-content-between align-items-center">
+
+<span class="price">₹159</span>
+
+<button class="add-btn"
+onclick="addToCart('Waffles',159)">
+<i class="bi bi-plus"></i>
+</button>
+
+</div>
+
+</div>
+</div>
+</div>
+
+
+
+<!-- 30 -->
+
+<div class="col-md-6 col-lg-4 col-xl-3 product-item dessert">
+
+<div class="product-card">
+
+<div class="product-img">
+
+<img src="icecream.jpg">
+
+</div>
+
+<div class="product-body">
+
+<h3>Ice Cream</h3>
+
+<p>Cold creamy vanilla ice cream with chocolate drizzle.</p>
+
+<div class="d-flex justify-content-between align-items-center">
+
+<span class="price">₹99</span>
+
+<button class="add-btn"
+onclick="addToCart('Ice Cream',99)">
+<i class="bi bi-plus"></i>
+</button>
+
+</div>
+
+</div>
+</div>
+</div>
+
+
+
+<!-- 31 -->
+
+<div class="col-md-6 col-lg-4 col-xl-3 product-item coffee">
+
+<div class="product-card">
+
+<div class="product-img">
+
+<img src="flatwhite.jpg">
+
+</div>
+
+<div class="product-body">
+
+<h3>Flat White</h3>
+
+<p>Velvety espresso with a thin layer of steamed milk.</p>
+
+<div class="d-flex justify-content-between align-items-center">
+
+<span class="price">₹169</span>
+
+<button class="add-btn"
+onclick="addToCart('Flat White',169)">
+<i class="bi bi-plus"></i>
+</button>
+
+</div>
+
+</div>
+</div>
+</div>
+
+
+
+<!-- 32 -->
+
+<div class="col-md-6 col-lg-4 col-xl-3 product-item coffee">
+
+<div class="product-card">
+
+<div class="product-img">
+
+<img src="irishcoffee.jpg">
+
+</div>
+
+<div class="product-body">
+
+<h3>Irish Coffee</h3>
+
+<p>Aromatic coffee with a smooth creamy finish.</p>
+
+<div class="d-flex justify-content-between align-items-center">
+
+<span class="price">₹189</span>
+
+<button class="add-btn"
+onclick="addToCart('Irish Coffee',189)">
+<i class="bi bi-plus"></i>
+</button>
+
+</div>
+
+</div>
+</div>
+</div>
+
+
+
+<!-- 33 -->
+
+<div class="col-md-6 col-lg-4 col-xl-3 product-item coffee">
+
+<div class="product-card">
+
+<div class="product-img">
+
+<img src="vanillalatte.jpg">
+
+</div>
+
+<div class="product-body">
+
+<h3>Vanilla Latte</h3>
+
+<p>Silky latte infused with sweet vanilla flavour.</p>
+
+<div class="d-flex justify-content-between align-items-center">
+
+<span class="price">₹179</span>
+
+<button class="add-btn"
+onclick="addToCart('Vanilla Latte',179)">
+<i class="bi bi-plus"></i>
+</button>
+
+</div>
+
+</div>
+</div>
+</div>
+
+
+
+<!-- 34 -->
+
+<div class="col-md-6 col-lg-4 col-xl-3 product-item coffee">
+
+<div class="product-card">
+
+<div class="product-img">
+
+<img src="macchiato.jpg">
+
+</div>
+
+<div class="product-body">
+
+<h3>Macchiato</h3>
+
+<p>Bold espresso topped with a delicate touch of foam.</p>
+
+<div class="d-flex justify-content-between align-items-center">
+
+<span class="price">₹149</span>
+
+<button class="add-btn"
+onclick="addToCart('Macchiato',149)">
+<i class="bi bi-plus"></i>
+</button>
+
+</div>
+
+</div>
+</div>
+</div>
+
+
+
+<!-- 35 -->
+
+<div class="col-md-6 col-lg-4 col-xl-3 product-item food">
+
+<div class="product-card">
+
+<div class="product-img">
+
+<img src="classicburger.jpg">
+
+</div>
+
+<div class="product-body">
+
+<h3>Classic Burger</h3>
+
+<p>Juicy patty with lettuce, tomato and our special sauce.</p>
+
+<div class="d-flex justify-content-between align-items-center">
+
+<span class="price">₹199</span>
+
+<button class="add-btn"
+onclick="addToCart('Classic Burger',199)">
+<i class="bi bi-plus"></i>
+</button>
+
+</div>
+
+</div>
+</div>
+</div>
+
+
+
+<!-- 36 -->
+
+<div class="col-md-6 col-lg-4 col-xl-3 product-item food">
+
+<div class="product-card">
+
+<div class="product-img">
+
+<img src="cheesefries.jpg">
+
+</div>
+
+<div class="product-body">
+
+<h3>Cheese Fries</h3>
+
+<p>Crispy fries covered with warm creamy cheese.</p>
+
+<div class="d-flex justify-content-between align-items-center">
+
+<span class="price">₹149</span>
+
+<button class="add-btn"
+onclick="addToCart('Cheese Fries',149)">
+<i class="bi bi-plus"></i>
+</button>
+
+</div>
+
+</div>
+</div>
+</div>
+
+
+
+<!-- 37 -->
+
+<div class="col-md-6 col-lg-4 col-xl-3 product-item food">
+
+<div class="product-card">
+
+<div class="product-img">
+
+<img src="paneerburger.jpg">
+
+</div>
+
+<div class="product-body">
+
+<h3>Paneer Burger</h3>
+
+<p>Grilled paneer patty with fresh vegetables and sauce.</p>
+
+<div class="d-flex justify-content-between align-items-center">
+
+<span class="price">₹189</span>
+
+<button class="add-btn"
+onclick="addToCart('Paneer Burger',189)">
+<i class="bi bi-plus"></i>
+</button>
+
+</div>
+
+</div>
+</div>
+</div>
+
+
+
+<!-- 38 -->
+
+<div class="col-md-6 col-lg-4 col-xl-3 product-item food">
+
+<div class="product-card">
+
+<div class="product-img">
+
+<img src="cheesepasta.jpg">
+
+</div>
+
+<div class="product-body">
+
+<h3>Cheese Pasta</h3>
+
+<p>Creamy cheesy pasta finished with herbs and seasoning.</p>
+
+<div class="d-flex justify-content-between align-items-center">
+
+<span class="price">₹219</span>
+
+<button class="add-btn"
+onclick="addToCart('Cheese Pasta',219)">
+<i class="bi bi-plus"></i>
+</button>
+
+</div>
+
+</div>
+</div>
+</div>
+
+
+
+<!-- 39 -->
+
+<div class="col-md-6 col-lg-4 col-xl-3 product-item food">
+
+<div class="product-card">
+
+<div class="product-img">
+
+<img src="masalasandwich.jpg">
+
+</div>
+
+<div class="product-body">
+
+<h3>Masala Sandwich</h3>
+
+<p>Spicy vegetable filling toasted between crispy bread.</p>
+
+<div class="d-flex justify-content-between align-items-center">
+
+<span class="price">₹139</span>
+
+<button class="add-btn"
+onclick="addToCart('Masala Sandwich',139)">
+<i class="bi bi-plus"></i>
+</button>
+
+</div>
+
+</div>
+</div>
+</div>
+
+
+
+<!-- 40 -->
+
+<div class="col-md-6 col-lg-4 col-xl-3 product-item dessert">
+
+<div class="product-card">
+
+<div class="product-img">
+
+<img src="chocolatemousse.jpg">
+
+<span class="product-tag">NEW</span>
+
+</div>
+
+<div class="product-body">
+
+<h3>Chocolate Mousse</h3>
+
+<p>Light and creamy chocolate dessert with rich cocoa flavour.</p>
+
+<div class="d-flex justify-content-between align-items-center">
+
+<span class="price">₹159</span>
+
+<button class="add-btn"
+onclick="addToCart('Chocolate Mousse',159)">
+<i class="bi bi-plus"></i>
+</button>
+
+</div>
+
+</div>
+</div>
+</div>
+
+
+</div>
+
+</div>
+
+</section>
+
+
+
+<!-- CTA -->
+
+<section class="cta">
+
+<div class="container">
+
+<span class="menu-label">
+COFFEE • FOOD • DESSERT
+</span>
+
+<h2>
+Good food starts<br>
+with good coffee.
+</h2>
+
+<p>
+Choose your favourites and add them to your cart.
+We'll take care of the rest.
+</p>
+
+<a href="order.html" class="btn btn-lg"
+style="background:#c8945d;color:white;border-radius:30px;padding:13px 30px;">
+Go To Order
+<i class="bi bi-arrow-right ms-2"></i>
+</a>
+
+</div>
+
+</section>
+
+
+
+<!-- FLOATING CART -->
+
+<div class="cart-box">
+
+<button class="cart-button"
+onclick="goToOrder()">
+
+<i class="bi bi-bag-fill"></i>
+
+<span class="cart-count" id="cartCount">
+0
+</span>
+
+</button>
+
+</div>
+
+
+
+<!-- FOOTER -->
+
+<footer>
+
+<div class="container">
+
+<div class="row g-5">
+
+<div class="col-lg-5">
+
+<h3>
+<i class="bi bi-cup-hot-fill"></i>
+Brew & Bite
+</h3>
+
+<p class="mt-3">
+Premium coffee, delicious food and
+beautiful moments — all in one place.
+</p>
+
+<div class="social mt-4">
+
+<a href="#"><i class="bi bi-instagram"></i></a>
+<a href="#"><i class="bi bi-facebook"></i></a>
+<a href="#"><i class="bi bi-twitter-x"></i></a>
+<a href="#"><i class="bi bi-whatsapp"></i></a>
+
+</div>
+
+</div>
+
+
+<div class="col-6 col-lg-3">
+
+<h5>Quick Links</h5>
+
+<a class="footer-link" href="index.html">Home</a>
+<a class="footer-link" href="menu.html">Menu</a>
+<a class="footer-link" href="about.html">About</a>
+<a class="footer-link" href="order.html">Order</a>
+<a class="footer-link" href="contact.html">Contact</a>
+
+</div>
+
+
+<div class="col-6 col-lg-4">
+
+<h5>Visit Us</h5>
+
+<p class="mt-3">
+<i class="bi bi-geo-alt-fill text-warning"></i>
+Main Street, Pune, Maharashtra
+</p>
+
+<p>
+<i class="bi bi-telephone-fill text-warning"></i>
++91 98765 43210
+</p>
+
+<p>
+<i class="bi bi-envelope-fill text-warning"></i>
+hello@brewandbite.com
+</p>
+
+<p>
+<i class="bi bi-clock-fill text-warning"></i>
+Everyday · 9:00 AM – 10:00 PM
+</p>
+
+</div>
+
+</div>
+
+<hr style="border-color:#3c2920;margin-top:45px">
+
+<div class="text-center">
+
+<small>
+© 2026 Brew & Bite Café · Crafted with love ☕
+</small>
+
+</div>
+
+</div>
+
+</footer>
+
+
+
+<script>
+
+let cart = JSON.parse(localStorage.getItem("brewCart")) || [];
+
+
+/* ADD TO CART */
+
+function addToCart(name,price){
+
+let item = cart.find(product => product.name === name);
+
+if(item){
+
+item.quantity++;
+
+}else{
+
+cart.push({
+name:name,
+price:price,
+quantity:1
+});
+
+}
+
+saveCart();
+
+showMessage(name);
+
+}
+
+
+/* SAVE */
+
+function saveCart(){
+
+localStorage.setItem(
+"brewCart",
+JSON.stringify(cart)
+);
+
+updateCartCount();
+
+}
+
+
+/* COUNT */
+
+function updateCartCount(){
+
+let count = 0;
+
+cart.forEach(item=>{
+count += item.quantity;
+});
+
+document.getElementById("cartCount").innerText=count;
+
+document.getElementById("navCount").innerText=count;
+
+}
+
+
+/* FILTER */
+
+function filterItems(category,button){
+
+let products =
+document.querySelectorAll(".product-item");
+
+let buttons =
+document.querySelectorAll(".filter-btn");
+
+buttons.forEach(btn=>{
+btn.classList.remove("active");
+});
+
+button.classList.add("active");
+
+products.forEach(product=>{
+
+if(category==="all"){
+
+product.style.display="block";
+
+}else{
+
+if(product.classList.contains(category)){
+
+product.style.display="block";
+
+}else{
+
+product.style.display="none";
+
+}
+
+}
+
+});
+
+}
+
+
+/* MESSAGE */
+
+function showMessage(name){
+
+let old =
+document.getElementById("cartMessage");
+
+if(old){
+old.remove();
+}
+
+let message=document.createElement("div");
+
+message.id="cartMessage";
+
+message.innerHTML=
+"✓ "+name+" added to your cart";
+
+message.style.position="fixed";
+message.style.top="90px";
+message.style.right="25px";
+message.style.zIndex="2000";
+message.style.background="#21130d";
+message.style.color="white";
+message.style.padding="14px 22px";
+message.style.borderRadius="30px";
+message.style.boxShadow="0 10px 30px rgba(0,0,0,.2)";
+
+document.body.appendChild(message);
+
+setTimeout(()=>{
+message.remove();
+},2000);
+
+}
+
+
+/* ORDER PAGE */
+
+function goToOrder(){
+
+window.location.href="order.html";
+
+}
+
+
+updateCartCount();
+
+</script>
+
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+</body>
+</html>
+
+

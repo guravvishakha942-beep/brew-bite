@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Brew & Bite | Welcome</title>
+
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+:root {
+  --dark:#24140e;
+  --brown:#4b291b;
+  --caramel:#c98a52;
+  --light:#e8b681;
+  --cream:#fff8f0;
+}
+* { box-sizing:border-box; }
+body {
+  margin:0; min-height:100vh;
+  font-family:'Poppins',sans-serif;
+  background:var(--dark); color:var(--cream);
+}
+.intro {
+  position:fixed; inset:0; z-index:20;
+  display:flex; align-items:center; justify-content:center;
+  flex-direction:column; overflow:hidden;
+  background:radial-gradient(ellipse at center,#70432b 0%,#321c13 48%,#160d09 100%);
+  animation:introOut 1s ease 4.4s forwards;
+}
+.intro::before,.intro::after {
+  content:""; position:absolute; border:1px solid #e8b68135;
+  border-radius:50%; width:350px;height:350px;
+  animation:ring 4s ease-in-out infinite;
+}
+.intro::after { width:470px;height:470px; animation-delay:.5s; }
+@keyframes ring {
+  0%,100% {transform:scale(.9);opacity:.1}
+  50% {transform:scale(1.08);opacity:.6}
+}
+.intro-title {
+  font-family:'DM Serif Display',serif; font-size:clamp(38px,8vw,68px);
+  color:var(--cream); margin-top:22px; z-index:2;
+  opacity:0; animation:reveal 1s ease 1.6s forwards;
+}
+.intro-sub {
+  font-size:11px; letter-spacing:5px; color:var(--light);
+  text-transform:uppercase; z-index:2;
+  opacity:0; animation:reveal 1s ease 2.2s forwards;
+}
+.coffee-scene {
+  position:relative; width:180px;height:170px; z-index:2;
+  display:flex; justify-content:center; align-items:flex-end;
+  animation:cupEnter 1s cubic-bezier(.2,.8,.2,1) .2s both;
+}
+.cup {
+  position:relative; width:112px;height:75px;
+  background:linear-gradient(110deg,#fff8f0,#d8bda5);
+  border-radius:8px 8px 43px 43px;
+  box-shadow:0 18px 35px #0007,inset -12px -4px 15px #8b654c45;
+}
+.cup::before {
+  content:""; position:absolute; right:-29px; top:13px;
+  width:37px;height:38px;border:9px solid #e9d7c5;
+  border-left:0;border-radius:0 22px 22px 0;
+}
+.cup::after {
+  content:""; position:absolute; left:-9px;right:-9px;top:-5px;
+  height:15px;border-radius:50%;
+  background:#f8eadc;border:3px solid #d6bba1;
+}
+.coffee {
+  position:absolute;top:0;left:3px;right:3px;height:10px;
+  border-radius:50%;background:#4b2112;
+  animation:fillCoffee 1.3s ease 1s forwards;
+}
+.stream {
+  position:absolute;top:-40px;left:81px;width:7px;height:0;
+  background:linear-gradient(90deg,#7c3d1d,#d69a57,#5b2a14);
+  border-radius:50%;animation:pour .9s ease .7s forwards;
+}
+.saucer {
+  position:absolute;bottom:-8px;left:23px;width:135px;height:18px;
+  border-radius:50%;background:linear-gradient(#fff4e7,#bda18a);
+  z-index:-1;
+}
+.steam {
+  position:absolute;top:-37px;width:15px;height:42px;
+  border-left:3px solid #fff1dd99;border-radius:50%;
+  opacity:0;animation:steam 2s ease-in-out 1.5s infinite;
+}
+.steam.s1 {left:60px}
+.steam.s2 {left:83px;animation-delay:1.8s}
+.steam.s3 {left:105px;animation-delay:2.1s}
+@keyframes cupEnter {
+  from {opacity:0;transform:translateY(70px) scale(.7)}
+  to {opacity:1;transform:translateY(0) scale(1)}
+}
+@keyframes pour {to {height:48px}}
+@keyframes fillCoffee {to {height:16px}}
+@keyframes steam {
+  0% {transform:translateY(15px);opacity:0}
+  50% {opacity:.8}
+  100% {transform:translateY(-18px);opacity:0}
+}
+@keyframes reveal {to {opacity:1;transform:translateY(0)}}
+@keyframes introOut {to {opacity:0;visibility:hidden;pointer-events:none}}
+.intro-title,.intro-sub {transform:translateY(15px)}
+.spark {
+  position:absolute;color:#e8b681;opacity:0;
+  animation:sparkle 2s ease-in-out infinite;
+}
+.sp1 {top:25%;left:22%}.sp2 {top:32%;right:20%;animation-delay:.6s}
+.sp3 {bottom:23%;left:27%;animation-delay:1s}
+@keyframes sparkle {50% {opacity:1;transform:scale(1.4)}}
+
+.login-screen {
+  min-height:100vh;display:flex;align-items:center;justify-content:center;
+  padding:22px;
+  background:linear-gradient(#24140ed9,#24140ef0),
+  url("https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?auto=format&fit=crop&w=1800&q=85") center/cover;
+  opacity:0;animation:loginIn .9s ease 4.5s forwards;
+}
+@keyframes loginIn {to {opacity:1}}
+.login-card {
+  width:430px;max-width:100%;padding:40px 35px;
+  background:rgba(255,248,240,.97);color:var(--dark);
+  border:1px solid #ffffff60;border-radius:26px;
+  box-shadow:0 25px 80px #0007;backdrop-filter:blur(12px);
+}
+.logo {
+  width:70px;height:70px;margin:0 auto 14px;border-radius:50%;
+  display:flex;align-items:center;justify-content:center;
+  background:var(--brown);color:var(--light);font-size:32px;
+}
+h1 {font:38px 'DM Serif Display',serif;text-align:center}
+.subtitle {text-align:center;color:#806c60;font-size:13px;margin-bottom:27px}
+.field {position:relative;margin-bottom:17px}
+.field>i {position:absolute;left:15px;top:14px;color:var(--caramel)}
+.field input {
+  width:100%;padding:13px 43px;border:1px solid #dfcbbb;
+  border-radius:12px;outline:none;background:white;
+}
+.field input:focus {border-color:var(--caramel);box-shadow:0 0 0 4px #c98a521c}
+.eye {position:absolute;right:14px;top:13px;cursor:pointer;color:#806c60}
+.options {display:flex;justify-content:space-between;gap:8px;font-size:11px;margin:5px 0 23px;color:#6e5a4e}
+.options a,.signup a {color:var(--brown);font-weight:600;text-decoration:none}
+.login-btn {
+  width:100%;padding:13px;border:0;border-radius:30px;color:white;
+  font-weight:600;background:linear-gradient(135deg,#a96d3c,#d59a61);
+  transition:.3s;box-shadow:0 8px 20px #a96d3c40;
+}
+.login-btn:hover {transform:translateY(-2px);box-shadow:0 12px 28px #a96d3c60}
+.error {
+  display:none;background:#ffe8e4;color:#9b392e;
+  border-radius:9px;padding:10px;font-size:12px;margin-bottom:15px;
+}
+.divider {display:flex;align-items:center;gap:12px;margin:23px 0;color:#a08d80;font-size:12px}
+.divider::before,.divider::after {content:"";height:1px;background:#dfcbbb;flex:1}
+.signup {text-align:center;color:#806c60;font-size:12px}
+@media(max-width:500px) {
+  .login-card {padding:32px 23px}
+  h1 {font-size:32px}
+  .intro::before {width:270px;height:270px}
+  .intro::after {width:340px;height:340px}
+}
+@media(prefers-reduced-motion:reduce) {
+  .intro,.intro *,.login-screen,.login-card {animation-duration:.01ms!important}
+}
+</style>
+</head>
+
+<body>
+
+<!-- COFFEE INTRO -->
+<section class="intro" id="intro">
+  <i class="bi bi-stars spark sp1"></i>
+  <i class="bi bi-stars spark sp2"></i>
+  <i class="bi bi-stars spark sp3"></i>
+
+  <div class="coffee-scene">
+    <div class="stream"></div>
+    <div class="steam s1"></div>
+    <div class="steam s2"></div>
+    <div class="steam s3"></div>
+    <div class="saucer"></div>
+    <div class="cup"><div class="coffee"></div></div>
+  </div>
+
+  <div class="intro-title">Brew &amp; Bite</div>
+  <div class="intro-sub">Coffee · Food · Beautiful Moments</div>
+</section>
+
+<!-- LOGIN PAGE -->
+<main class="login-screen">
+  <div class="login-card">
+    <div class="logo"><i class="bi bi-cup-hot-fill"></i></div>
+    <h1>Brew &amp; Bite</h1>
+    <p class="subtitle">Welcome back! Login to explore our café.</p>
+
+    <div id="errorMessage" class="error">
+      <i class="bi bi-exclamation-circle"></i>
+      Invalid username or password.
+    </div>
+
+    <form onsubmit="loginUser(event)">
+      <div class="field">
+        <i class="bi bi-person-fill"></i>
+        <input type="text" id="username" placeholder="Username"
+          autocomplete="username" required>
+      </div>
+
+      <div class="field">
+        <i class="bi bi-lock-fill"></i>
+        <input type="password" id="password" placeholder="Password"
+          autocomplete="current-password" required>
+        <span class="eye" onclick="togglePassword()">
+          <i id="eyeIcon" class="bi bi-eye"></i>
+        </span>
+      </div>
+
+      <div class="options">
+        <label><input type="checkbox" id="remember"> Remember me</label>
+        <a href="#" onclick="alert('Please contact the café administrator to reset your password.');return false;">Forgot Password?</a>
+      </div>
+
+      <button type="submit" class="login-btn" id="loginBtn">
+        <i class="bi bi-box-arrow-in-right"></i> Login
+      </button>
+    </form>
+
+    <div class="divider">OR</div>
+    <div class="signup">Don't have an account?
+      <a href="#" onclick="alert('Account registration is not configured yet.');return false;">Create Account</a>
+    </div>
+  </div>
+</main>
+
+<script>
+function togglePassword() {
+  const password = document.getElementById("password");
+  const icon = document.getElementById("eyeIcon");
+
+  if (password.type === "password") {
+    password.type = "text";
+    icon.className = "bi bi-eye-slash";
+  } else {
+    password.type = "password";
+    icon.className = "bi bi-eye";
+  }
+}
+
+function loginUser(event) {
+  event.preventDefault();
+
+  const username = document.getElementById("username").value.trim();
+  const password = document.getElementById("password").value;
+  const error = document.getElementById("errorMessage");
+  const button = document.getElementById("loginBtn");
+
+  // Demo login details
+  if (username === "Vishakha" && password === "Aditi") {
+    error.style.display = "none";
+    button.innerHTML = '<i class="bi bi-check-circle"></i> Login Successful';
+    button.style.background = "#5a321f";
+
+    localStorage.setItem("loggedIn", "true");
+    localStorage.setItem("username", username);
+
+    setTimeout(function() {
+      window.location.href = "index.html";
+    }, 900);
+  } else {
+    error.style.display = "block";
+    error.innerHTML =
+      '<i class="bi bi-exclamation-circle"></i> Invalid username or password.';
+  }
+}
+
+// Skip intro if user prefers reduced motion
+if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+  document.getElementById("intro").style.display = "none";
+  document.querySelector(".login-screen").style.animation = "none";
+  document.querySelector(".login-screen").style.opacity = "1";
+}
+</script>
+</body>
+</html>

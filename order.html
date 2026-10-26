@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Brew & Bite | Order Online</title>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--dark:#24140d;--brown:#4b2819;--coffee:#704027;--caramel:#c8894f;--gold:#e5b47d;--cream:#fff8f0;--light:#f3e2d0;--white:#fff;--muted:#806b5d}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--cream);color:var(--dark);font-family:'Poppins',sans-serif}h1,h2,h3,h4,h5{font-family:'Playfair Display',serif}
+.navbar{background:rgba(36,20,13,.99);padding:15px 0}.navbar-brand{color:var(--gold)!important;font-family:'Playfair Display',serif;font-size:28px;font-weight:700}.navbar-brand i{color:#fff}.nav-link{color:#fff!important;margin:0 9px;font-weight:500}.nav-link:hover,.nav-link.active{color:var(--gold)!important}.cart-btn{background:var(--caramel);color:white;text-decoration:none;padding:9px 18px;border-radius:30px;display:inline-block}.cart-btn:hover{background:var(--gold);color:var(--dark)}
+.order-hero{padding:68px 0 62px;text-align:center;color:#fff;background:linear-gradient(90deg,rgba(36,20,13,.94),rgba(36,20,13,.72)),url('https://images.unsplash.com/photo-1445116572660-236099ec97a0?auto=format&fit=crop&w=1800&q=85') center/cover}.eyebrow{color:var(--gold);letter-spacing:3px;font-size:.82rem;font-weight:600}.order-hero h1{font-size:clamp(42px,6vw,68px);margin:12px 0}.order-hero p{color:#f2e5da;margin:0 auto;max-width:650px}
+.page-section{padding:65px 0 85px}.section-title{font-size:clamp(30px,4vw,42px)}.subtle{color:var(--muted)}.panel{background:#fff;border-radius:22px;padding:28px;box-shadow:0 15px 40px rgba(60,30,15,.08)}.panel-title{font-size:27px;margin-bottom:5px}.cart-item{display:grid;grid-template-columns:1fr auto;gap:12px;padding:18px 0;border-bottom:1px solid #eee0d4}.cart-item:last-child{border-bottom:0}.item-name{font-weight:600}.item-meta{font-size:.9rem;color:var(--muted)}.qty-controls{display:flex;align-items:center;gap:10px;margin-top:10px}.qty-btn{width:31px;height:31px;border:1px solid #ddc6b2;background:#fff8f0;border-radius:50%;color:var(--brown);font-weight:700;line-height:1}.qty-btn:hover{background:var(--caramel);color:white}.remove-btn{border:0;background:transparent;color:#a04a37;font-size:.9rem}.price{font-weight:600;white-space:nowrap}.summary-row{display:flex;justify-content:space-between;gap:14px;padding:8px 0;color:#5d4638}.summary-row.total{border-top:1px solid #e7d5c5;margin-top:10px;padding-top:16px;font-weight:700;font-size:1.2rem;color:var(--dark)}.form-label{font-weight:500}.form-control,.form-select{border:1px solid #decbbb;border-radius:12px;padding:12px 14px}.form-control:focus,.form-select:focus{border-color:var(--caramel);box-shadow:0 0 0 3px rgba(200,137,79,.13)}.payment-option{border:1px solid #e4d3c4;border-radius:14px;padding:15px;display:flex;gap:12px;align-items:flex-start;cursor:pointer;height:100%}.payment-option:has(input:checked){border-color:var(--caramel);background:#fff8f0;box-shadow:0 0 0 2px rgba(200,137,79,.12)}.payment-option input{accent-color:var(--coffee);margin-top:5px}.payment-option strong{display:block}.payment-option small{color:var(--muted)}.primary-btn{background:var(--caramel);color:#fff;border:0;padding:14px 22px;border-radius:30px;font-weight:600;width:100%;transition:.2s}.primary-btn:hover{background:var(--coffee);color:#fff}.primary-btn:disabled{opacity:.5;cursor:not-allowed}.empty-cart{text-align:center;padding:40px 15px}.empty-cart i{font-size:48px;color:var(--caramel)}.empty-cart h3{margin-top:15px}.empty-cart a{color:var(--coffee);font-weight:600}.notice{border-radius:12px;padding:13px 15px;background:#fff4e5;color:#69401f;font-size:.9rem}.success-box{border:1px solid #c8ddc5;background:#f2fbf0;border-radius:18px;padding:24px}.success-box h3{color:#2f6d36}footer{background:var(--dark);color:white;padding:50px 0 20px}footer h3,footer h5{color:var(--gold)}footer p{color:#d4c5ba}footer a{color:#ddd!important;text-decoration:none}footer a:hover{color:var(--gold)!important}
+@media(max-width:767px){.page-section{padding:42px 0 60px}.panel{padding:20px}.order-hero{padding:55px 0}.cart-item{grid-template-columns:1fr}.cart-item .price{grid-row:1}}
+</style>
+</head>
+<body>
+<nav class="navbar navbar-expand-lg navbar-dark sticky-top">
+ <div class="container">
+  <a class="navbar-brand" href="index.html"><i class="bi bi-cup-hot-fill"></i> Brew &amp; Bite</a>
+  <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu" aria-controls="navMenu" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+  <div class="collapse navbar-collapse" id="navMenu">
+   <ul class="navbar-nav ms-auto align-items-lg-center">
+    <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+    <li class="nav-item"><a class="nav-link" href="menu.html">Menu</a></li>
+    <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
+    <li class="nav-item"><a class="nav-link active" href="order.html">Order</a></li>
+    <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+    <li class="nav-item ms-lg-3 mt-3 mt-lg-0"><a class="cart-btn" href="#cartPanel"><i class="bi bi-cart3"></i> Cart <span id="cartCount" class="badge bg-light text-dark">0</span></a></li>
+   </ul>
+  </div>
+ </div>
+</nav>
+
+<section class="order-hero">
+ <div class="container">
+  <span class="eyebrow">FRESHLY BREWED, JUST FOR YOU</span>
+  <h1>Order Something Lovely</h1>
+  <p>Your favourite coffee, delicious bites and sweet treats—delivered with a little café love.</p>
+ </div>
+</section>
+
+<main class="page-section">
+ <div class="container">
+  <div class="row g-4 align-items-start">
+   <div class="col-lg-7">
+    <section class="panel mb-4" id="cartPanel">
+     <div class="d-flex justify-content-between align-items-center gap-3 mb-2">
+      <div><span class="eyebrow">YOUR SELECTION</span><h2 class="panel-title mt-1">Shopping Cart</h2></div>
+      <a href="menu.html" class="text-decoration-none fw-semibold" style="color:var(--coffee)">+ Add items</a>
+     </div>
+     <p class="subtle small mb-0">Items added from the Menu page appear here automatically.</p>
+     <div id="cartItems"></div>
+     <div id="emptyCart" class="empty-cart d-none">
+      <i class="bi bi-basket"></i><h3>Your cart is waiting</h3>
+      <p class="subtle">Head to our menu and add something delicious.</p>
+      <a href="menu.html">Explore the menu <i class="bi bi-arrow-right"></i></a>
+     </div>
+    </section>
+
+    <section class="panel" id="customerPanel">
+     <span class="eyebrow">DELIVERY DETAILS</span>
+     <h2 class="panel-title mt-1 mb-4">Where should we deliver?</h2>
+     <form id="orderForm" novalidate>
+      <div class="row g-3">
+       <div class="col-md-6"><label class="form-label" for="customerName">Full Name *</label><input class="form-control" id="customerName" name="customerName" type="text" minlength="2" maxlength="80" autocomplete="name" placeholder="Enter your full name" required></div>
+       <div class="col-md-6"><label class="form-label" for="phone">Mobile Number *</label><input class="form-control" id="phone" name="phone" type="tel" inputmode="numeric" autocomplete="tel" pattern="[6-9][0-9]{9}" maxlength="10" placeholder="10-digit mobile number" required><div class="invalid-feedback">Enter a valid 10-digit Indian mobile number.</div></div>
+       <div class="col-md-6"><label class="form-label" for="email">Email Address *</label><input class="form-control" id="email" name="email" type="email" autocomplete="email" maxlength="120" placeholder="you@example.com" required></div>
+       <div class="col-md-6"><label class="form-label" for="pincode">PIN Code *</label><input class="form-control" id="pincode" name="pincode" type="text" inputmode="numeric" pattern="[1-9][0-9]{5}" maxlength="6" autocomplete="postal-code" placeholder="6-digit PIN code" required><div class="invalid-feedback">Enter a valid 6-digit PIN code.</div></div>
+       <div class="col-12"><label class="form-label" for="address">Full Delivery Address *</label><textarea class="form-control" id="address" name="address" rows="3" minlength="10" maxlength="300" autocomplete="street-address" placeholder="House/flat, building, street, area, landmark" required></textarea></div>
+       <div class="col-md-6"><label class="form-label" for="city">City *</label><input class="form-control" id="city" name="city" type="text" maxlength="60" autocomplete="address-level2" placeholder="Your city" required></div>
+       <div class="col-md-6"><label class="form-label" for="instructions">Delivery Instructions (optional)</label><input class="form-control" id="instructions" name="instructions" type="text" maxlength="180" placeholder="Landmark or special instructions"></div>
+      </div>
+      <hr class="my-4" style="border-color:#ead9c9">
+      <span class="eyebrow">PAYMENT</span><h2 class="panel-title mt-1 mb-3">Choose payment method</h2>
+      <div class="row g-3 mb-3">
+       <div class="col-md-6"><label class="payment-option"><input type="radio" name="payment" value="cod" required><span><strong><i class="bi bi-cash-coin"></i> Cash on Delivery</strong><small>Pay when your order arrives.</small></span></label></div>
+       <div class="col-md-6"><label class="payment-option"><input type="radio" name="payment" value="upi" required><span><strong><i class="bi bi-phone"></i> UPI / Online</strong><small>Demo selection only; payment gateway is not connected.</small></span></label></div>
+      </div>
+      <div id="upiNotice" class="notice d-none mb-3"><i class="bi bi-info-circle"></i> UPI is selected, but this website does not yet process real online payments. Connect a payment gateway before accepting live UPI payments.</div>
+      <div class="form-check mb-4"><input class="form-check-input" type="checkbox" id="terms" required><label class="form-check-label small" for="terms">I confirm that my contact and delivery details are correct.</label><div class="invalid-feedback">Please confirm your details before placing the order.</div></div>
+      <button type="submit" class="primary-btn" id="placeOrderBtn"><i class="bi bi-bag-check-fill me-2"></i>Place Order</button>
+      <p class="small subtle mt-3 mb-0">Demo order flow: this page validates details and creates a confirmation on this device. It does not send orders to a café server.</p>
+     </form>
+     <div id="confirmation" class="success-box d-none mt-4" role="status" aria-live="polite"></div>
+    </section>
+   </div>
+
+   <div class="col-lg-5">
+    <aside class="panel" id="billPanel">
+     <span class="eyebrow">THE TOTAL</span><h2 class="panel-title mt-1 mb-4">Order Summary</h2>
+     <div class="summary-row"><span>Subtotal</span><strong id="subtotal">₹0.00</strong></div>
+     <div class="summary-row"><span>GST (5%)</span><strong id="gst">₹0.00</strong></div>
+     <div class="summary-row"><span>Delivery</span><strong id="delivery">₹0.00</strong></div>
+     <div class="summary-row total"><span>Total to Pay</span><strong id="grandTotal">₹0.00</strong></div>
+     <p class="small subtle mt-3 mb-0">Illustrative billing settings: GST 5%; delivery ₹40, waived for subtotal ₹500 or more. Adjust these values to match your actual business and tax setup.</p>
+     <hr class="my-4" style="border-color:#ead9c9">
+     <div class="d-flex gap-3 align-items-start"><i class="bi bi-shield-check fs-4" style="color:var(--caramel)"></i><div><strong>Freshness, packed with care</strong><p class="small subtle mb-0">Your order summary updates as you change quantities.</p></div></div>
+     <div class="d-flex gap-3 align-items-start mt-3"><i class="bi bi-heart fs-4" style="color:var(--caramel)"></i><div><strong>Made for your happy moments</strong><p class="small subtle mb-0">Thank you for choosing Brew &amp; Bite.</p></div></div>
+    </aside>
+   </div>
+  </div>
+ </div>
+</main>
+
+<footer><div class="container"><div class="row g-4">
+ <div class="col-md-5"><h3><i class="bi bi-cup-hot-fill"></i> Brew &amp; Bite</h3><p class="mt-3">Premium coffee, delicious food and unforgettable café moments.</p></div>
+ <div class="col-md-3"><h5>Quick Links</h5><p><a href="index.html">Home</a></p><p><a href="menu.html">Menu</a></p><p><a href="about.html">About</a></p><p><a href="contact.html">Contact</a></p></div>
+ <div class="col-md-4"><h5>Contact Us</h5><p><i class="bi bi-geo-alt-fill me-2"></i>Main Street, Pune, Maharashtra</p><p><i class="bi bi-telephone-fill me-2"></i>+91 98765 43210</p><p><i class="bi bi-envelope-fill me-2"></i>hello@brewandbite.com</p></div>
+ </div><hr style="border-color:#51372a"><div class="text-center"><small>© 2026 Brew &amp; Bite Café. All Rights Reserved.</small></div></div></footer>
+
+<script>
+"use strict";
+const CART_KEY = "brewCart";
+const GST_RATE = 0.05;       // Example only: confirm your applicable tax rate.
+const DELIVERY_FEE = 40;     // Example only: change to your actual delivery charge.
+const FREE_DELIVERY_AT = 500;
+const money = amount => new Intl.NumberFormat("en-IN", {style:"currency",currency:"INR"}).format(amount);
+const escapeHTML = value => String(value ?? "").replace(/[&<>"']/g, char => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[char]));
+function readCart(){
+  try {
+    const value = JSON.parse(localStorage.getItem(CART_KEY) || "[]");
+    if (!Array.isArray(value)) return [];
+    return value.map(item => ({
+      name: String(item.name || "Menu item"),
+      price: Number(item.price),
+      quantity: Number(item.quantity)
+    })).filter(item => Number.isFinite(item.price) && item.price >= 0 && Number.isInteger(item.quantity) && item.quantity > 0);
+  } catch (error) { return []; }
+}
+let cart = readCart();
+function saveCart(){ localStorage.setItem(CART_KEY, JSON.stringify(cart)); }
+function subtotalValue(){ return cart.reduce((sum,item)=>sum + item.price * item.quantity,0); }
+function renderCart(){
+  const container = document.getElementById("cartItems");
+  const empty = document.getElementById("emptyCart");
+  const count = cart.reduce((sum,item)=>sum+item.quantity,0);
+  document.getElementById("cartCount").textContent = count;
+  if(!cart.length){
+    container.innerHTML = "";
+    empty.classList.remove("d-none");
+  } else {
+    empty.classList.add("d-none");
+    container.innerHTML = cart.map((item,index)=>`
+      <div class="cart-item">
+       <div><div class="item-name">${escapeHTML(item.name)}</div>
+        <div class="item-meta">${money(item.price)} each</div>
+        <div class="qty-controls">
+         <button class="qty-btn" type="button" data-action="minus" data-index="${index}" aria-label="Decrease ${escapeHTML(item.name)} quantity">−</button>
+         <span aria-label="Quantity">${item.quantity}</span>
+         <button class="qty-btn" type="button" data-action="plus" data-index="${index}" aria-label="Increase ${escapeHTML(item.name)} quantity">+</button>
+         <button class="remove-btn ms-2" type="button" data-action="remove" data-index="${index}"><i class="bi bi-trash3"></i> Remove</button>
+        </div>
+       </div>
+       <div class="price">${money(item.price*item.quantity)}</div>
+      </div>`).join("");
+  }
+  const subtotal = subtotalValue();
+  const gst = subtotal * GST_RATE;
+  const delivery = subtotal === 0 || subtotal >= FREE_DELIVERY_AT ? 0 : DELIVERY_FEE;
+  document.getElementById("subtotal").textContent = money(subtotal);
+  document.getElementById("gst").textContent = money(gst);
+  document.getElementById("delivery").textContent = money(delivery);
+  document.getElementById("grandTotal").textContent = money(subtotal+gst+delivery);
+  document.getElementById("placeOrderBtn").disabled = cart.length === 0;
+}
+document.getElementById("cartItems").addEventListener("click",event=>{
+  const button = event.target.closest("button[data-action]");
+  if(!button) return;
+  const index = Number(button.dataset.index);
+  if(!Number.isInteger(index) || !cart[index]) return;
+  if(button.dataset.action==="plus") cart[index].quantity++;
+  if(button.dataset.action==="minus") cart[index].quantity--;
+  if(button.dataset.action==="remove" || cart[index].quantity<=0) cart.splice(index,1);
+  saveCart(); renderCart();
+});
+document.querySelectorAll('input[name="payment"]').forEach(input=>input.addEventListener("change",()=>{
+  document.getElementById("upiNotice").classList.toggle("d-none",document.querySelector('input[name="payment"]:checked')?.value!=="upi");
+}));
+document.getElementById("phone").addEventListener("input",event=>{event.target.value=event.target.value.replace(/\D/g,"").slice(0,10)});
+document.getElementById("pincode").addEventListener("input",event=>{event.target.value=event.target.value.replace(/\D/g,"").slice(0,6)});
+document.getElementById("orderForm").addEventListener("submit",event=>{
+  event.preventDefault();
+  const form=event.currentTarget;
+  form.classList.add("was-validated");
+  if(!form.checkValidity()){
+    form.querySelector(":invalid")?.focus();
+    return;
+  }
+  if(!cart.length){alert("Your cart is empty. Please add items from the Menu.");return;}
+  const payment=document.querySelector('input[name="payment"]:checked')?.value;
+  if(!payment){alert("Please select a payment method.");return;}
+  const name=document.getElementById("customerName").value.trim();
+  if(name.length<2){document.getElementById("customerName").setCustomValidity("Please enter your full name.");form.classList.add("was-validated");document.getElementById("customerName").reportValidity();document.getElementById("customerName").setCustomValidity("");return;}
+  const subtotal=subtotalValue(), gst=subtotal*GST_RATE, delivery=subtotal===0||subtotal>=FREE_DELIVERY_AT?0:DELIVERY_FEE;
+  const total=subtotal+gst+delivery;
+  const orderId="BB"+Date.now().toString().slice(-8);
+  const order={
+    orderId, createdAt:new Date().toISOString(),
+    customer:{name,email:document.getElementById("email").value.trim(),phone:document.getElementById("phone").value,address:document.getElementById("address").value.trim(),city:document.getElementById("city").value.trim(),pincode:document.getElementById("pincode").value,instructions:document.getElementById("instructions").value.trim()},
+    items:cart.map(item=>({...item})),subtotal,gst,delivery,total,paymentMethod:payment==="cod"?"Cash on Delivery":"UPI / Online (not processed)"
+  };
+  // This is a local demo receipt only. It does not transmit customer data or create a server order.
+  try{localStorage.setItem("brewLastOrder",JSON.stringify(order));}catch(error){}
+  const confirmation=document.getElementById("confirmation");
+  confirmation.innerHTML=`<h3><i class="bi bi-check-circle-fill"></i> Order details validated!</h3>
+    <p class="mb-2">Thank you, <strong>${escapeHTML(name)}</strong>. Your demo order reference is <strong>${escapeHTML(orderId)}</strong>.</p>
+    <p class="mb-2">Items: ${order.items.map(item=>`${escapeHTML(item.name)} × ${item.quantity}`).join(", ")}</p>
+    <p class="mb-2">Payment method: <strong>${escapeHTML(order.paymentMethod)}</strong></p>
+    <p class="mb-0">Order total: <strong>${money(total)}</strong></p>
+    <p class="small mt-3 mb-0">This is a local confirmation for the demo website, not a real submitted order. ${payment==="upi"?"No online payment has been taken.":""}</p>`;
+  confirmation.classList.remove("d-none");
+  confirmation.scrollIntoView({behavior:"smooth",block:"center"});
+  cart=[];
+  saveCart();
+  renderCart();
+  form.reset();
+  form.classList.remove("was-validated");
+  document.getElementById("upiNotice").classList.add("d-none");
+});
+renderCart();
+</script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

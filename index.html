@@ -1,0 +1,1291 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Brew & Bite | Premium Coffee Café</title>
+
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+
+<link rel="stylesheet"
+href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+
+:root{
+    --espresso:#21130d;
+    --dark:#2d1a12;
+    --coffee:#583522;
+    --brown:#754a31;
+    --gold:#c8945d;
+    --cream:#fbf5ed;
+    --beige:#ead9c5;
+    --white:#fff;
+}
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    font-family:'Montserrat',sans-serif;
+    background:var(--cream);
+    color:var(--espresso);
+}
+
+h1,h2,h3,h4,h5{
+    font-family:'DM Serif Display',serif;
+}
+
+
+/* ================= NAVBAR ================= */
+
+.navbar{
+    background:rgba(33,19,13,.94);
+    backdrop-filter:blur(15px);
+    padding:18px 0;
+    position:absolute;
+    width:100%;
+    z-index:1000;
+}
+
+.navbar-brand{
+    font-family:'DM Serif Display',serif;
+    font-size:30px;
+    color:#e4b27d!important;
+}
+
+.navbar-brand i{
+    color:white;
+}
+
+.nav-link{
+    color:#fff!important;
+    font-size:14px;
+    margin-left:20px;
+    transition:.3s;
+}
+
+.nav-link:hover{
+    color:#e2ad76!important;
+}
+
+.order-nav{
+    background:var(--gold);
+    padding:10px 20px!important;
+    border-radius:30px;
+}
+
+.order-nav:hover{
+    background:#edc092;
+    color:var(--espresso)!important;
+}
+
+
+/* ================= HERO ================= */
+
+.hero{
+    min-height:100vh;
+    display:flex;
+    align-items:center;
+
+    background:
+    linear-gradient(
+        90deg,
+        rgba(25,14,9,.92) 0%,
+        rgba(25,14,9,.70) 45%,
+        rgba(25,14,9,.30) 100%
+    ),
+    url("https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?auto=format&fit=crop&w=2000&q=90");
+
+    background-size:cover;
+    background-position:center;
+}
+
+.hero-content{
+    color:white;
+    padding-top:70px;
+}
+
+.hero-label{
+    color:#e5b47e;
+    letter-spacing:5px;
+    font-size:12px;
+    font-weight:600;
+}
+
+.hero h1{
+    font-size:clamp(55px,7vw,100px);
+    line-height:.98;
+    margin:22px 0;
+}
+
+.hero h1 span{
+    color:#dfa66d;
+}
+
+.hero-text{
+    max-width:580px;
+    color:#e7dcd2;
+    line-height:1.9;
+    font-size:16px;
+}
+
+.hero-buttons{
+    margin-top:35px;
+}
+
+.btn-gold{
+    background:var(--gold);
+    color:white;
+    padding:14px 30px;
+    border-radius:35px;
+    border:none;
+    text-decoration:none;
+    font-weight:600;
+    display:inline-block;
+    transition:.3s;
+}
+
+.btn-gold:hover{
+    background:#e4b17b;
+    color:var(--espresso);
+    transform:translateY(-3px);
+}
+
+.btn-outline{
+    color:white;
+    border:1px solid rgba(255,255,255,.6);
+    padding:13px 30px;
+    border-radius:35px;
+    text-decoration:none;
+    margin-left:10px;
+    transition:.3s;
+}
+
+.btn-outline:hover{
+    background:white;
+    color:var(--espresso);
+}
+
+.hero-bottom{
+    margin-top:70px;
+    display:flex;
+    gap:45px;
+}
+
+.hero-stat strong{
+    display:block;
+    font-family:'DM Serif Display',serif;
+    font-size:30px;
+    color:#e3ad76;
+}
+
+.hero-stat small{
+    color:#d8ccc2;
+}
+
+
+/* ================= INTRO ================= */
+
+.section{
+    padding:110px 0;
+}
+
+.label{
+    color:var(--gold);
+    letter-spacing:3px;
+    font-size:12px;
+    font-weight:700;
+}
+
+.title{
+    font-size:55px;
+    line-height:1.1;
+    margin:12px 0 20px;
+}
+
+.description{
+    color:#756155;
+    line-height:1.9;
+}
+
+
+/* ================= FEATURED ================= */
+
+.featured{
+    background:#f2e5d5;
+}
+
+.section-heading{
+    text-align:center;
+    max-width:650px;
+    margin:0 auto 55px;
+}
+
+.coffee-card{
+    background:white;
+    border-radius:22px;
+    overflow:hidden;
+    border:none;
+    height:100%;
+    box-shadow:0 15px 45px rgba(55,31,18,.08);
+    transition:.4s;
+}
+
+.coffee-card:hover{
+    transform:translateY(-12px);
+    box-shadow:0 25px 55px rgba(55,31,18,.17);
+}
+
+.coffee-img{
+    height:280px;
+    position:relative;
+    overflow:hidden;
+}
+
+.coffee-img img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    transition:.5s;
+}
+
+.coffee-card:hover .coffee-img img{
+    transform:scale(1.08);
+}
+
+.badge-best{
+    position:absolute;
+    top:18px;
+    left:18px;
+    background:var(--espresso);
+    color:#fff;
+    padding:7px 14px;
+    border-radius:20px;
+    font-size:11px;
+}
+
+.card-body-custom{
+    padding:25px;
+}
+
+.card-body-custom h3{
+    font-size:27px;
+}
+
+.card-body-custom p{
+    color:#806d5e;
+    font-size:13px;
+    line-height:1.7;
+}
+
+.price{
+    color:var(--gold);
+    font-size:21px;
+    font-weight:700;
+}
+
+.add{
+    width:42px;
+    height:42px;
+    border:none;
+    border-radius:50%;
+    background:var(--espresso);
+    color:white;
+    transition:.3s;
+}
+
+.add:hover{
+    background:var(--gold);
+    transform:rotate(90deg);
+}
+
+
+/* ================= EXPERIENCE ================= */
+
+.experience-img{
+    width:100%;
+    height:560px;
+    object-fit:cover;
+    border-radius:25px;
+}
+
+.experience-content{
+    padding-left:40px;
+}
+
+.check{
+    list-style:none;
+    padding:0;
+    margin-top:30px;
+}
+
+.check li{
+    margin:18px 0;
+    color:#665246;
+}
+
+.check i{
+    color:var(--gold);
+    margin-right:12px;
+}
+
+
+/* ================= DARK BANNER ================= */
+
+.dark-section{
+    background:var(--espresso);
+    color:white;
+}
+
+.dark-section .description{
+    color:#cbbcb1;
+}
+
+.dark-img{
+    width:100%;
+    height:500px;
+    object-fit:cover;
+    border-radius:25px;
+}
+
+
+/* ================= CATEGORIES ================= */
+
+.category-card{
+    height:330px;
+    border-radius:22px;
+    overflow:hidden;
+    position:relative;
+    color:white;
+}
+
+.category-card img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    transition:.5s;
+}
+
+.category-card:hover img{
+    transform:scale(1.08);
+}
+
+.category-overlay{
+    position:absolute;
+    inset:0;
+    display:flex;
+    align-items:end;
+    padding:30px;
+    background:linear-gradient(transparent,rgba(0,0,0,.8));
+}
+
+.category-overlay h3{
+    font-size:30px;
+}
+
+
+/* ================= TESTIMONIAL ================= */
+
+.testimonial{
+    background:#f3e5d5;
+}
+
+.quote-card{
+    background:white;
+    padding:40px;
+    border-radius:22px;
+    height:100%;
+    box-shadow:0 10px 35px rgba(50,30,20,.07);
+}
+
+.stars{
+    color:#c8945d;
+    letter-spacing:3px;
+}
+
+.quote-card p{
+    color:#69574b;
+    line-height:1.9;
+    margin:20px 0;
+}
+
+.customer{
+    font-weight:600;
+}
+
+
+/* ================= CTA ================= */
+
+.cta{
+    padding:120px 20px;
+    text-align:center;
+    color:white;
+
+    background:
+    linear-gradient(rgba(35,19,12,.82),rgba(35,19,12,.82)),
+    url("https://images.unsplash.com/photo-1511081692775-05d0f180a065?auto=format&fit=crop&w=1800&q=85");
+
+    background-size:cover;
+    background-position:center;
+}
+
+.cta h2{
+    font-size:65px;
+}
+
+.cta p{
+    max-width:600px;
+    margin:15px auto 35px;
+    color:#dfd1c7;
+    line-height:1.8;
+}
+
+
+/* ================= FOOTER ================= */
+
+footer{
+    background:#170d09;
+    color:#bdaea4;
+    padding:60px 0 20px;
+}
+
+footer h3{
+    color:#e2ad76;
+    font-size:30px;
+}
+
+footer h5{
+    color:white;
+}
+
+.footer-link{
+    color:#bdaea4;
+    text-decoration:none;
+    display:block;
+    margin:12px 0;
+    transition:.3s;
+}
+
+.footer-link:hover{
+    color:#e2ad76;
+}
+
+.social a{
+    color:white;
+    font-size:21px;
+    margin-right:17px;
+    transition:.3s;
+}
+
+.social a:hover{
+    color:#e2ad76;
+}
+
+
+/* ================= RESPONSIVE ================= */
+
+@media(max-width:768px){
+
+    .navbar{
+        position:absolute;
+    }
+
+    .hero{
+        min-height:850px;
+        background-position:60% center;
+    }
+
+    .hero h1{
+        font-size:55px;
+    }
+
+    .hero-bottom{
+        gap:20px;
+        flex-wrap:wrap;
+    }
+
+    .title{
+        font-size:42px;
+    }
+
+    .experience-content{
+        padding-left:0;
+        margin-top:40px;
+    }
+
+    .experience-img{
+        height:380px;
+    }
+
+    .cta h2{
+        font-size:45px;
+    }
+
+}
+
+</style>
+</head>
+
+
+<body>
+
+
+<!-- ================= NAVBAR ================= -->
+
+<nav class="navbar navbar-expand-lg navbar-dark">
+
+<div class="container">
+
+<a class="navbar-brand" href="index.html">
+<i class="bi bi-cup-hot-fill"></i>
+Brew & Bite
+</a>
+
+<button class="navbar-toggler"
+data-bs-toggle="collapse"
+data-bs-target="#nav">
+
+<span class="navbar-toggler-icon"></span>
+
+</button>
+
+<div class="collapse navbar-collapse" id="nav">
+
+<ul class="navbar-nav ms-auto align-items-lg-center">
+
+<li class="nav-item">
+<a class="nav-link" href="index.html">Home</a>
+</li>
+
+<li class="nav-item">
+<a class="nav-link" href="menu.html">Menu</a>
+</li>
+
+<li class="nav-item">
+<a class="nav-link" href="about.html">About</a>
+</li>
+
+<li class="nav-item">
+<a class="nav-link" href="order.html">Order</a>
+</li>
+
+<li class="nav-item">
+<a class="nav-link" href="contact.html">Contact</a>
+</li>
+
+<li class="nav-item">
+<a class="nav-link order-nav" href="menu.html">
+Order Now
+</a>
+</li>
+
+</ul>
+
+</div>
+
+</div>
+
+</nav>
+
+
+
+<!-- ================= HERO ================= -->
+
+<section class="hero">
+
+<div class="container">
+
+<div class="hero-content">
+
+<div class="hero-label">
+WELCOME TO BREW & BITE
+</div>
+
+<h1>
+Coffee made<br>
+<span>beautiful.</span>
+</h1>
+
+<p class="hero-text">
+
+A premium café experience crafted around
+exceptional coffee, delicious food and
+moments worth slowing down for.
+
+</p>
+
+<div class="hero-buttons">
+
+<a href="menu.html" class="btn-gold">
+Explore Menu
+<i class="bi bi-arrow-right ms-2"></i>
+</a>
+
+<a href="about.html" class="btn-outline">
+Our Story
+</a>
+
+</div>
+
+
+<div class="hero-bottom">
+
+<div class="hero-stat">
+<strong>25K+</strong>
+<small>Cups Served</small>
+</div>
+
+<div class="hero-stat">
+<strong>4.9★</strong>
+<small>Customer Rating</small>
+</div>
+
+<div class="hero-stat">
+<strong>40+</strong>
+<small>Menu Choices</small>
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+
+<!-- ================= INTRO ================= -->
+
+<section class="section">
+
+<div class="container">
+
+<div class="row align-items-center g-5">
+
+<div class="col-lg-6">
+
+<span class="label">
+THE ART OF COFFEE
+</span>
+
+<h2 class="title">
+Where every cup<br>
+tells a story.
+</h2>
+
+<p class="description">
+
+At Brew & Bite, coffee isn't just a drink.
+It's a ritual, a conversation and sometimes
+the best part of your day.
+
+We carefully select quality beans, prepare
+every cup with passion and pair it with food
+made fresh for you.
+
+</p>
+
+<a href="about.html" class="btn-gold mt-3">
+Discover Our Story
+</a>
+
+</div>
+
+
+<div class="col-lg-6">
+
+<img
+src="https://images.unsplash.com/photo-1442512595331-e89e73853f31?auto=format&fit=crop&w=1200&q=85"
+class="w-100 rounded-4"
+style="height:480px;object-fit:cover;"
+alt="Fresh Coffee">
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+
+<!-- ================= FEATURED ================= -->
+
+<section class="section featured">
+
+<div class="container">
+
+<div class="section-heading">
+
+<span class="label">
+OUR FAVORITES
+</span>
+
+<h2 class="title">
+Made to be loved.
+</h2>
+
+<p class="description">
+A few customer favorites that keep
+everyone coming back for another cup.
+</p>
+
+</div>
+
+
+<div class="row g-4">
+
+
+<!-- CARD 1 -->
+
+<div class="col-md-6 col-lg-4">
+
+<div class="coffee-card">
+
+<div class="coffee-img">
+
+<img
+src="https://images.unsplash.com/photo-1509042239860-f550ce710b93?auto=format&fit=crop&w=900&q=85">
+
+<span class="badge-best">
+BEST SELLER
+</span>
+
+</div>
+
+<div class="card-body-custom">
+
+<h3>
+Signature Cappuccino
+</h3>
+
+<p>
+Rich espresso, silky steamed milk
+and a beautiful layer of foam.
+</p>
+
+<div class="d-flex justify-content-between align-items-center">
+
+<span class="price">
+₹149
+</span>
+
+<button class="add">
+<i class="bi bi-plus-lg"></i>
+</button>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+
+<!-- CARD 2 -->
+
+<div class="col-md-6 col-lg-4">
+
+<div class="coffee-card">
+
+<div class="coffee-img">
+
+<img
+src="https://images.unsplash.com/photo-1461023058943-07fcbe16d735?auto=format&fit=crop&w=900&q=85">
+
+<span class="badge-best">
+CUSTOMER FAVORITE
+</span>
+
+</div>
+
+<div class="card-body-custom">
+
+<h3>
+Creamy Café Latte
+</h3>
+
+<p>
+Smooth espresso blended with
+perfectly steamed creamy milk.
+</p>
+
+<div class="d-flex justify-content-between align-items-center">
+
+<span class="price">
+₹159
+</span>
+
+<button class="add">
+<i class="bi bi-plus-lg"></i>
+</button>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+
+<!-- CARD 3 -->
+
+<div class="col-md-6 col-lg-4">
+
+<div class="coffee-card">
+
+<div class="coffee-img">
+
+<img
+src="https://images.unsplash.com/photo-1578985545062-69928b1d9587?auto=format&fit=crop&w=900&q=85">
+
+<span class="badge-best">
+SWEET PICK
+</span>
+
+</div>
+
+<div class="card-body-custom">
+
+<h3>
+Chocolate Cake
+</h3>
+
+<p>
+Soft, rich chocolate cake made
+for your perfect coffee pairing.
+</p>
+
+<div class="d-flex justify-content-between align-items-center">
+
+<span class="price">
+₹169
+</span>
+
+<button class="add">
+<i class="bi bi-plus-lg"></i>
+</button>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+
+<div class="text-center mt-5">
+
+<a href="menu.html" class="btn-gold">
+View Full Menu
+<i class="bi bi-arrow-right ms-2"></i>
+</a>
+
+</div>
+
+</div>
+
+</section>
+
+
+
+<!-- ================= EXPERIENCE ================= -->
+
+<section class="section">
+
+<div class="container">
+
+<div class="row align-items-center g-5">
+
+<div class="col-lg-6">
+
+<img
+src="https://images.unsplash.com/photo-1554118811-1e0d58224f24?auto=format&fit=crop&w=1200&q=85"
+class="experience-img"
+alt="Cafe Interior">
+
+</div>
+
+
+<div class="col-lg-6">
+
+<div class="experience-content">
+
+<span class="label">
+THE BREW & BITE EXPERIENCE
+</span>
+
+<h2 class="title">
+Your favorite place
+to slow down.
+</h2>
+
+<p class="description">
+
+Whether you're meeting friends,
+working quietly or enjoying some
+well-deserved me-time, our café
+is designed to make you feel at home.
+
+</p>
+
+<ul class="check">
+
+<li>
+<i class="bi bi-check-circle-fill"></i>
+Premium freshly brewed coffee
+</li>
+
+<li>
+<i class="bi bi-check-circle-fill"></i>
+Freshly prepared food & desserts
+</li>
+
+<li>
+<i class="bi bi-check-circle-fill"></i>
+Warm, aesthetic café atmosphere
+</li>
+
+<li>
+<i class="bi bi-check-circle-fill"></i>
+Friendly service
+</li>
+
+</ul>
+
+<a href="about.html" class="btn-gold mt-3">
+Know More About Us
+</a>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+
+<!-- ================= CATEGORIES ================= -->
+
+<section class="section featured">
+
+<div class="container">
+
+<div class="section-heading">
+
+<span class="label">
+EXPLORE
+</span>
+
+<h2 class="title">
+Something for every mood.
+</h2>
+
+</div>
+
+
+<div class="row g-4">
+
+<div class="col-md-4">
+
+<div class="category-card">
+
+<img
+src="https://images.unsplash.com/photo-1498804103079-a6351b050096?auto=format&fit=crop&w=900&q=85">
+
+<div class="category-overlay">
+<h3>Coffee</h3>
+</div>
+
+</div>
+
+</div>
+
+
+<div class="col-md-4">
+
+<div class="category-card">
+
+<img
+src="https://images.unsplash.com/photo-1528735602780-2552fd46c7af?auto=format&fit=crop&w=900&q=85">
+
+<div class="category-overlay">
+<h3>Food</h3>
+</div>
+
+</div>
+
+</div>
+
+
+<div class="col-md-4">
+
+<div class="category-card">
+
+<img
+src="https://images.unsplash.com/photo-1578985545062-69928b1d9587?auto=format&fit=crop&w=900&q=85">
+
+<div class="category-overlay">
+<h3>Desserts</h3>
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+
+<!-- ================= TESTIMONIAL ================= -->
+
+<section class="section testimonial">
+
+<div class="container">
+
+<div class="section-heading">
+
+<span class="label">
+CUSTOMER LOVE
+</span>
+
+<h2 class="title">
+What people say.
+</h2>
+
+</div>
+
+
+<div class="row g-4">
+
+
+<div class="col-md-4">
+
+<div class="quote-card">
+
+<div class="stars">
+★★★★★
+</div>
+
+<p>
+"Beautiful café with amazing coffee.
+The cappuccino is honestly one of
+the best I've had!"
+</p>
+
+<div class="customer">
+— Ananya
+</div>
+
+</div>
+
+</div>
+
+
+<div class="col-md-4">
+
+<div class="quote-card">
+
+<div class="stars">
+★★★★★
+</div>
+
+<p>
+"The ambience, food and service are
+excellent. Perfect place to spend
+a relaxing evening."
+</p>
+
+<div class="customer">
+— Rahul
+</div>
+
+</div>
+
+</div>
+
+
+<div class="col-md-4">
+
+<div class="quote-card">
+
+<div class="stars">
+★★★★★
+</div>
+
+<p>
+"Everything feels premium but still
+warm and comfortable. Definitely
+coming back!"
+</p>
+
+<div class="customer">
+— Sneha
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+
+<!-- ================= CTA ================= -->
+
+<section class="cta">
+
+<div class="container">
+
+<span class="label">
+YOUR NEXT FAVORITE CUP IS WAITING
+</span>
+
+<h2 class="mt-3">
+Good coffee.<br>
+Good food. Good moments.
+</h2>
+
+<p>
+Come in, slow down and enjoy the
+Brew & Bite experience.
+</p>
+
+<a href="menu.html" class="btn-gold">
+Order Your Favorites
+<i class="bi bi-arrow-right ms-2"></i>
+</a>
+
+</div>
+
+</section>
+
+
+
+<!-- ================= FOOTER ================= -->
+
+<footer>
+
+<div class="container">
+
+<div class="row g-5">
+
+<div class="col-lg-5">
+
+<h3>
+<i class="bi bi-cup-hot-fill"></i>
+Brew & Bite
+</h3>
+
+<p class="mt-3">
+Premium coffee, delicious food and
+beautiful moments — all in one place.
+</p>
+
+<div class="social mt-4">
+
+<a href="#"><i class="bi bi-instagram"></i></a>
+<a href="#"><i class="bi bi-facebook"></i></a>
+<a href="#"><i class="bi bi-twitter-x"></i></a>
+<a href="#"><i class="bi bi-whatsapp"></i></a>
+
+</div>
+
+</div>
+
+
+<div class="col-6 col-lg-3">
+
+<h5>
+Quick Links
+</h5>
+
+<a class="footer-link" href="index.html">Home</a>
+<a class="footer-link" href="menu.html">Menu</a>
+<a class="footer-link" href="about.html">About</a>
+<a class="footer-link" href="order.html">Order</a>
+<a class="footer-link" href="contact.html">Contact</a>
+
+</div>
+
+
+<div class="col-6 col-lg-4">
+
+<h5>
+Visit Brew & Bite
+</h5>
+
+<p class="mt-3">
+<i class="bi bi-geo-alt-fill text-warning"></i>
+Main Street, Pune, Maharashtra
+</p>
+
+<p>
+<i class="bi bi-telephone-fill text-warning"></i>
++91 98765 43210
+</p>
+
+<p>
+<i class="bi bi-envelope-fill text-warning"></i>
+hello@brewandbite.com
+</p>
+
+<p>
+<i class="bi bi-clock-fill text-warning"></i>
+Everyday · 9:00 AM – 10:00 PM
+</p>
+
+</div>
+
+</div>
+
+<hr style="border-color:#3c2920;margin-top:45px">
+
+<div class="text-center">
+
+<small>
+© 2026 Brew & Bite Café · Crafted with love ☕
+</small>
+
+</div>
+
+</div>
+
+</footer>
+
+
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+</body>
+</html>
